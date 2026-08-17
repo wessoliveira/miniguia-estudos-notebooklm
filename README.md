@@ -106,13 +106,13 @@ Para avanço no entendimento do assunto foram testados alguns prompts:
    
    Independentemente do tipo de variável aleatória, existem conceitos matemáticos universais para descrevê-las:
    
-   •	Função de Distribuição Acumulada (FDA ou $F(x)$): É uma função que acumula a probabilidade acumulada até um determinado valor $x$, ou seja, $F(x) = P(X \le x)$. 
+   * Função de Distribuição Acumulada (FDA) ou $F(x)$: É uma função que acumula a probabilidade acumulada até um determinado valor $x$, ou seja, $F(x) = P(X \le x)$. 
    
-      o	No caso discreto, ela simplesmente "soma" as probabilidades de todos os valores menores ou iguais a $x$.
+      * No caso discreto, ela simplesmente "soma" as probabilidades de todos os valores menores ou iguais a $x$.
    
-      o	No caso contínuo, ela integra a densidade de probabilidade desde $-\infty$ até $x$.
-   
-      o	Uma grande vantagem de se obter a FDA é simplificar cálculos de intervalos, uma vez que $P(a \le X \le b) = F(b) - F(a)$.
+      * No caso contínuo, ela integra a densidade de probabilidade desde $-\infty$ até $x$.
+      
+      * Uma grande vantagem de se obter a FDA é simplificar cálculos de intervalos, uma vez que $P(a \le X \le b) = F(b) - F(a)$.
    
    •	Medidas de Resumo (Média e Dispersão): Para caracterizar de forma rápida o comportamento de uma variável, usamos o Valor Esperado (Média ou Esperança Matemática), que representa o comportamento de longo prazo ou centro da população, e a Variância, que quantifica a dispersão ou o distanciamento dos valores em torno dessa média.
 
@@ -275,7 +275,7 @@ Distribuição Hipergeométrica
 
 Utilizada em amostragens sem reposição em populações finitas ($N$).
 
-•	Análise Comparativa: O que a distingue da Binomial é o Fator de Correção de População Finita \frac{N-n}{N-1} presente na variância, que reduz a incerteza à medida que a amostra n se aproxima do tamanho total da população.
+•	Análise Comparativa: O que a distingue da Binomial é o Fator de Correção de População Finita $\frac{N-n}{N-1}$ presente na variância, que reduz a incerteza à medida que a amostra n se aproxima do tamanho total da população.
 
 •	Fórmulas:
 
@@ -342,4 +342,116 @@ Legenda: D = Discreta; C = Contínua.
 
 ## Glossário com os principais conceitos aprendidos
 
+Glossário Técnico-Acadêmico: Fundamentos de Probabilidade e Estatística
+
+1. Introdução ao Arcabouço da Incerteza
+
+A Teoria da Probabilidade constitui o arcabouço matemático rigoroso destinado ao estudo e à modelagem de fenômenos permeados pela incerteza. Sua importância estratégica transcende a abstração acadêmica, fundamentando a tomada de decisão baseada em dados ao formalizar a ideia de chance relativa de ocorrência de resultados em sistemas estocásticos. Conforme observado na prática científica e industrial, essa disciplina permite quantificar a viabilidade de eventos críticos, como a probabilidade de o tempo de espera em filas exceder um patamar operacional, a estimativa da vida útil de equipamentos (determinando a probabilidade de uma máquina operar por pelo menos cinco anos) ou a aferição da taxa de sucesso de procedimentos médicos, como intervenções com eficácia prevista de 60%.
+
+A Probabilidade, sob a ótica da estatística matemática, é a função que atribui pesos numéricos aos resultados possíveis de um fenômeno incerto. Contudo, para que tal quantificação possua validade analítica, é imperativo que a gênese do modelo parta de uma definição rigorosa do experimento e de seu domínio de possibilidades.
+
+2. A Gênese do Modelo: Experimentos e Espaços
+
+A construção de um modelo probabilístico robusto exige a execução metódica de duas etapas fundamentais: primeiramente, a descrição exaustiva do conjunto de resultados possíveis; e, subsequentemente, a atribuição de pesos (probabilidades) que reflitam a verossimilhança de cada desfecho.
+
+•	Experimento Aleatório: Define-se como o processo que, embora repetido sob condições idênticas, é capaz de fornecer resultados distintos. Exemplificam este conceito o lançamento de um dado, a medição da altura de um habitante selecionado ao acaso na cidade de São Paulo, a determinação do número de peças defeituosas em um lote de produção e a contagem de chamadas telefônicas recebidas por uma central em um intervalo de tempo fixo.
+
+•	Espaço Amostral (S): É o conjunto universal que compreende todos os resultados possíveis de um experimento. Para sua validade formal, o espaço deve satisfazer dois requisitos de consistência:
+
+1.	Unicidade: A ocorrência de apenas um resultado por rodada do experimento.
+
+2.	Exaustividade: A garantia de que nenhum resultado possível seja omitido do conjunto S.
+
+Tipologia dos Espaços Amostrais
+
+| Tipo	| Descrição Matemática	| Exemplo Canônico |
+|--------|-----------------------|------------------|
+| Enumerável Finito	| O cardinal do conjunto é finito, permitindo a contagem limitada dos elementos.	| Lançamento de um dado: $S=\{1, 2, 3, 4, 5, 6\}$. |
+| Enumerável Infinito	| O conjunto possui uma bijeção com o conjunto dos números inteiros ($\mathbb{Z}$).	| Lançar uma moeda até a primeira cara: $S=\{C, KC, KKC, \dots\}$. |
+| Não-enumerável	| Os resultados formam um continuum, geralmente associado a medidas físicas em intervalos reais. |	Lançamento de dardo em alvo de raio 1: $S=\{(x,y): x^2+y^2 \le 1\}$. |
+
+Uma vez delimitado o espaço amostral, a análise prossegue para a classificação das estruturas contidas neste domínio: os eventos.
+
+3. Ontologia dos Eventos Probabilísticos
+
+A segmentação estratégica do espaço amostral em subconjuntos é essencial para isolar fenômenos de interesse e analisar a distribuição de frequências e pesos de ocorrência.
+
+•	Evento: Formalmente, qualquer subconjunto de S. Denotado por letras maiúsculas ($A, B, C, \dots$).
+
+•	Evento Simples vs. Composto: A distinção fundamenta-se na cardinalidade. Um evento simples contém um único elemento de S (ex: $A = \{6\}$ no dado). Um evento composto abrange múltiplos resultados (ex: $C = \{2, 4, 6\}$ para faces pares).
+
+•	Evento Certo e Impossível: O Evento Certo coincide com o próprio espaço amostral ($A = S$), onde $\mathbb{P}\(S\)=1$. O Evento Impossível é representado pelo conjunto vazio ($\emptyset$ ou $\phi$), indicando a ausência de elementos favoráveis em $S$.
+
+•	Eventos Independentes: Conceito que denota a ausência de correlação causal ou estatística entre dois eventos, de modo que a ocorrência de A não altera a medida de probabilidade de $B$.
+
+A manipulação de eventos complexos requer o emprego de ferramentas operacionais derivadas da álgebra de conjuntos.
+
+4. Teoria de Conjuntos Aplicada à Probabilidade
+
+A álgebra de conjuntos provê o rigor operacional necessário para o cálculo de probabilidades em ocorrências múltiplas.
+
+Operações Fundamentais
+
+•	União ($A \cup B$): Resultados presentes em $A$, em $B$ ou em ambos. $A \cup B = \{x \in S: x \in A \text{ ou } x \in B\}$.
+
+•	Interseção ($A \cap B$): Resultados simultâneos em $A$ e $B$. $A \cap B = \{x \in S: x \in A \text{ e } x \in B\}$.
+
+•	Complementar ($A^c$): Resultados em S que não pertencem a $A$. $A^c = \{x \in S: x \notin A\}$.
+
+Relações e Partições
+
+•	Eventos Mutuamente Exclusivos (Disjuntos): Eventos cuja interseção é o conjunto vazio ($A \cap B = \emptyset$). Sob esta condição, a probabilidade da união é simplificada para a soma das probabilidades: $\mathbb{P}(A \cup B) = \mathbb{P}\(A\) + \mathbb{P}\(B\)$.
+
+•	Partição do Espaço Amostral: Conjunto de eventos que são simultaneamente mutuamente excludentes e coletivamente exaustivos, cobrindo integralmente S.
+
+Visualização Operacional
+
+A compreensão dessas operações é facilitada por representações gráficas: os Diagramas de Venn auxiliam na visualização de sobreposições; as Tabelas de Contingência são estratégicas para organizar frequências conjuntas (ex: relação entre sexo e curso de estatística); e os Diagramas de Árvore representam a natureza sequencial de experimentos múltiplos, permitindo o rastreamento de ramos de decisão.
+
+5. Variáveis Aleatórias e Funções de Distribuição
+
+A transição do pensamento qualitativo para o quantitativo ocorre quando mapeamos os resultados do espaço amostral em valores numéricos através de variáveis aleatórias.
+
+•	Variável Aleatória (Discreta e Contínua): Uma variável é discreta quando seu suporte é enumerável (contagem); é contínua quando assume valores em um intervalo de números reais (medição).
+
+•	Função Massa de Probabilidade (f.m.p.): No caso discreto, associa a cada valor possível de $X$ a sua respectiva probabilidade $p(x) = \mathbb{P}(X=x)$.
+
+•	Função Densidade de Probabilidade (f.d.p.): No caso contínuo, a probabilidade de um valor exato é nula; a probabilidade é definida pela área sob a curva em um intervalo $[a, b]$, refletindo o conceito de probabilidade geométrica.
+
+•	Função de Distribuição Acumulada (FDA): Define a probabilidade de a variável $X$ assumir um valor menor ou igual a um limite x, denotada por $F(x) = \mathbb{P}(X \le x)$.
+
+6. Momentos Estatísticos: Esperança e Variabilidade
+
+A sistematização de distribuições permite a condensação de informações complexas em parâmetros representativos, fundamentais para a análise de risco e incerteza.
+
+•	Esperança Matemática (Média): Representa o valor central esperado de um experimento após infinitas repetições (limite frequentista). É calculada como a média ponderada dos resultados pelos seus respectivos pesos probabilísticos.
+
+•	Variância: Parâmetro que quantifica o grau de dispersão dos dados em relação à esperança. Ela é a medida direta da incerteza ou do risco associado ao fenômeno estocástico.
+
+Síntese Final: O Modelo de Kolmogorov
+
+A coesão de todo o modelo probabilístico — do Experimento Aleatório à Variância — repousa sobre os Axiomas de Kolmogorov, que garantem o rigor matemático da função $\mathbb{P}(\cdot)$:
+
+1.	Não-negatividade: $\mathbb{P}\(A\) \ge 0$ para qualquer evento A.
+
+2.	Aditividade: Para eventos disjuntos, a probabilidade da união é a soma das probabilidades individuais $(\mathbb{P}(\cup E_j) = \sum \mathbb{P}(E_j))$.
+
+3.	Normalização: A probabilidade do espaço amostral total é unitária ($\mathbb{P}(S) = 1$). Desta forma, a estatística deixa de ser apenas uma observação de frequências para se tornar uma ciência de inferência e predição.
+
+
 ## Conjunto de prompts reutilizáveis que possam apoiar futuras revisões sobre o tema
+
+Uma lista que pode ser útil para entendimento e aprofundamento.
+
+* Faça um resumo estruturado sobre as distribuições de probabilidade com suas fórmulas principais
+* Explique como funcionam as distribuições discretas.
+* Como as operações de conjuntos ajudam no cálculo de probabilidades?
+* Qual a importância das técnicas de contagem na probabilidade clássica?
+* Explique a média e a variância.
+* Como funciona a distribuição binomial?
+* Explique a análise combinatória.
+* Cite exemplos de aplicações reais das diferentes distribuições.
+
+
+
+
